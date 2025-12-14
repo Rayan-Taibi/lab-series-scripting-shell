@@ -24,7 +24,7 @@ fi
 # (tar rvf a besoin que le fichier existe ou le crée, mais touch est une bonne sécurité)
 touch "$archive" || exit 1
 
-# CORRECTION : On force la lecture sur le terminal avec < /dev/tty
+#On force la lecture sur le terminal avec < /dev/tty
 find ~ -mtime +7 -type f | while read file; do
     ajouter=0
     
@@ -41,6 +41,6 @@ find ~ -mtime +7 -type f | while read file; do
 
     if [ $ajouter -eq 1 ]; then
         # Utilisation de la commande demandée dans le sujet 
-        tar rvf "$archive" "$file"
+        tar rvf "$archive" "$file" # Ajouter le fichier à l'archive
     fi
 done
